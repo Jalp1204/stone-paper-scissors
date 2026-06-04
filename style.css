@@ -113,3 +113,29 @@ h1{
     0 0 20px rgba(126,182,255,0.5);
 
 }
+
+#reset-score{
+    margin-top: 2rem;
+    padding:1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border:none;
+    background: #16062f;
+    color: white;
+    border-radius: 1em;
+    cursor:pointer;
+    box-shadow:
+    0 0 5px #7eb6ff,
+    0 0 10px rgba(126,182,255,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+#reset-score:hover{
+    transform: scale(1.1);
+    box-shadow:
+    0 0 5px #7eb6ff,
+    0 0 10px #7eb6ff;
+}
+#reset-score:active{
+    transform: scale(1);
+}

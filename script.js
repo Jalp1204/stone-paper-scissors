@@ -5,6 +5,7 @@ const userScoreDisplay=document.querySelector("#user-score");
 const drawScoreDisplay=document.querySelector("#draww");
 const compScoreDisplay=document.querySelector("#comp-score");
 const msg=document.querySelector("#msg");
+const resetScoreBtn = document.querySelector("#reset-score");
 
 let userScore=0;
 let compScore=0;
@@ -56,6 +57,24 @@ const playGame = (userChoice,compChoice) => {
 
 }
 
+
+const resetScoreboard=() => {
+    userScore=0;
+    compScore=0;
+    drawScore=0;
+
+    userScoreDisplay.innerText=userScore;
+    compScoreDisplay.innerText=compScore;
+    drawScoreDisplay.innerText=drawScore;
+
+    msg.innerText="Scoreboard Reset 🔄";
+    msg.style.color="lime";
+
+    userChoiceDisplay.innerText="❔";
+    compChoiceDisplay.innerText="❔";
+
+};
+
 const emojis={
     rock: "👊",
     paper: "✋",
@@ -72,5 +91,9 @@ choices.forEach((choice) => {
         playGame(userChoice,compChoice);
         
     });
+});
+
+resetScoreBtn.addEventListener("click",() => {
+    resetScoreboard();
 });
 
