@@ -52,12 +52,13 @@ h1{
     display:flex;
     justify-content:center;
     align-items: center;
-    gap:10rem;
+    gap: 2rem;
     margin-top:4rem;
 }
 
 
 .player-choice{
+    width:180px;
     text-align:center;
 }
 .player-choice p{
@@ -68,8 +69,10 @@ h1{
 }
 .vs{
     font-size: 2rem;
+    width:80px;
     font-weight: bold;
     display:flex;
+    justify-content:center;
     align-items:center;
 
     text-shadow:
@@ -82,7 +85,7 @@ h1{
     display:flex;
     justify-content:center;
     text-align: center;
-    gap:6rem;
+    gap:4rem;
     margin-top:3rem;
     font-size:2rem;
 }
