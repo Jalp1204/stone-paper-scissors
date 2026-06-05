@@ -19,6 +19,23 @@ const getCompChoice = () => {
     return options[randomIndex];
 };
 
+const animateComputerChoice=(finalChoice,userChoice) => {
+    const options=["rock","paper","scissor"];
+    const animation=setInterval(() => {
+        const randomIndex=Math.floor(Math.random() * 3);
+        const randomChoice=options[randomIndex];
+        compChoiceDisplay.innerText=emojis[randomChoice];
+    },110);
+
+    setTimeout(() => {
+        clearInterval(animation);
+        compChoiceDisplay.innerText = emojis[finalChoice];
+        playGame(userChoice, finalChoice);
+        choices.forEach(choice =>{
+            choice.disabled=false;
+        })
+    }, 1100);
+};
 
 
 const playGame = (userChoice,compChoice) => {
@@ -67,7 +84,7 @@ const resetScoreboard=() => {
     compScoreDisplay.innerText=compScore;
     drawScoreDisplay.innerText=drawScore;
 
-    msg.innerText="Scoreboard Reset 🔄";
+    msg.innerText="Choose your move 👊";
     msg.style.color="lime";
 
     userChoiceDisplay.innerText="❔";
@@ -85,10 +102,14 @@ choices.forEach((choice) => {
     choice.addEventListener("click",() => {
         const userChoice=choice.id; 
         userChoiceDisplay.innerText=emojis[userChoice];
+        msg.innerText = "Computer is thinking... 🤔";
+        msg.style.color = "white";
         const compChoice = getCompChoice();
-        compChoiceDisplay.innerText=emojis[compChoice];
+        choices.forEach(choice => {
+            choice.disabled=true;
+        })
+        animateComputerChoice(compChoice,userChoice);
 
-        playGame(userChoice,compChoice);
         
     });
 });
